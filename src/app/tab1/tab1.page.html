@@ -1,17 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Pokemon</ion-card-title>
+      <ion-card-subtitle>Tipos</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngFor="let pokemon of pokemonesTipo" [inset]="true">
+        <ion-item (click)="verPokemones(pokemon.name)">
+          <ion-label>{{pokemon.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="pokemonNombres.length > 0">
+        <ion-item *ngFor="let nombre of pokemonNombres">
+          <ion-thumbnail slot="start">
+            <img alt="{{nombre}}" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ion-thumbnail>
+          <ion-label>{{nombre}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
