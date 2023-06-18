@@ -11,8 +11,6 @@ const routes: Routes = [
     path: 'detalle-pokemones/:id',
     component: Tab2Page
   }
-  
-
 ];
 @NgModule({
   imports: [

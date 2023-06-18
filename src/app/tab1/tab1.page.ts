@@ -14,22 +14,16 @@ export class Tab1Page implements OnInit{
   component= Tab2Page;
   pokemonesTipo: PokemonesTipo[] = []
   pokemones: Pokemones[] = []
-  pokemonNombres: string[] = [];
-  pokemonId: string[] = []
   constructor( private pokemonService: PokeapiService, private router:Router) {}
 
   ngOnInit() {
     this.pokemonService.getTipoPokemones().subscribe((data: any) => {
       this.pokemonesTipo=data.results
+      console.log(this.pokemonesTipo)
     })
   }
 
   async verPokemones(name: string){
-    // this.pokemonService.getPokemones(name).subscribe(async (respuestaApi: any) => {
-    //   this.pokemones=respuestaApi.pokemon.slice(0,5)
-    //   this.pokemonNombres = respuestaApi.pokemon.slice(0, 5).map((pokemon: any) => pokemon.pokemon.name);
-    //   console.log(respuestaApi)
-    // })
     this.router.navigate(['detalle-pokemones', name])
   };
   
