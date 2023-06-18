@@ -4,4 +4,25 @@
       Tab 2
     </ion-title>
   </ion-toolbar>
+  <ion-list *ngIf="pokemones?.length > 0">
+    <ion-item *ngFor="let item of pokemones">
+
+      <ion-thumbnail slot="start">
+        <img alt="{{item.pokemon.name}}" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+      </ion-thumbnail>
+      <ion-label>{{item.pokemon.name}}</ion-label>
+      <ion-button (click)="InfoPokemones(item.pokemon.name)">Ver Info</ion-button> 
+    </ion-item>
+  </ion-list>
+  <ion-card>
+    <img alt="Silhouette of mountains" src="{{urlImagen}}" />
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Here's a small text description for the card content. Nothing more, nothing less.
+    </ion-card-content>
+  </ion-card>
 </ion-header>
