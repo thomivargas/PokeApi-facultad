@@ -14,7 +14,6 @@ const routes: Routes = [
     path: 'listado-pokemon/:id',
     loadChildren: () => import('./pages/listado-pokemon/listado-pokemon.module').then( m => m.ListadoPokemonPageModule)
   }
-
 ];
 @NgModule({
   imports: [

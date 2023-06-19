@@ -15,6 +15,9 @@
     <ion-item>
       <ion-item>Tipo:</ion-item>
       <ion-label>{{pokemon.name}}</ion-label>
+      <!-- <ion-nav-link router-direction="forward" [component]="component" routerLink="listado-pokemon/{{pokemon.name}}">
+        <ion-button>Infoa</ion-button>
+      </ion-nav-link> -->
       <ion-nav-link (click)="verPokemones(pokemon.name)" slot="end">
         <ion-button>Info</ion-button>
       </ion-nav-link>

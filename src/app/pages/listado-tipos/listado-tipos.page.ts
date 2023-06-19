@@ -33,14 +33,15 @@ export class ListadoTiposPage implements OnInit {
     await this.mostrarLoading();
     this.router.navigate(['listado-pokemon', name])
   };
+
   async mostrarLoading() {
     const loading = await this.loadingController.create({
       message: 'Cargando...',
       duration: 250 // Duración en milisegundos (opcional)
     });
-  
     await loading.present();
   }
+
   buscarNombre(event:any){
     const text= event.target.value;
    this.buscarPokemon = this.pokemonesTipo

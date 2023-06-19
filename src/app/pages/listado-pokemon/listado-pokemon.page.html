@@ -10,12 +10,13 @@
 
 <ion-content>
   <ion-list *ngIf="pokemones?.length > 0">
-    <ion-list *ngFor="let item of pokemones">
-      <ion-item> 
-        <ion-label>{{item.pokemon.name}}</ion-label>
-        <ion-button (click)="InfoPokemones(item.pokemon.name)">Ver Info</ion-button> 
-      </ion-item>
-    </ion-list>
+    <ion-item *ngFor="let item of pokemones; let i = index" >
+      <ion-thumbnail slot="start">
+        <img [src]="images[i]" alt="Imagen del Pokémon">
+      </ion-thumbnail>
+      <ion-label>{{item.pokemon.name}}</ion-label>
+      <ion-button (click)="InfoPokemones(item.pokemon.name)">Ver Info</ion-button>
+    </ion-item>
   </ion-list>
 </ion-content>
 <ion-card *ngIf="ocultarCard">

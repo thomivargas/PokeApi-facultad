@@ -15,13 +15,13 @@ export class ListadoPokemonPage implements OnInit {
   pokemones: any;
   pokemonesTipo: any;
   urlImagen: any;
+  images: string[] = [];
   urlImagenBack: any;
   PokemonName: any
   PokemonHabilidad: any
   ocultarCard: boolean = false;
   constructor(
     private route: ActivatedRoute,
-    private router:Router,
     private PokemonService: PokeapiService
   ) { }
 
@@ -29,14 +29,20 @@ export class ListadoPokemonPage implements OnInit {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       this.pokemonesTipo=id
-      if (id) {
+      if (id) { 
         this.PokemonService.getPokemones(id).subscribe(respuesta => {
           this.data = respuesta;
           this.pokemones=this.data.pokemon.slice(0,5)
+          this.pokemones.map((name:any) => {
+            this.PokemonService.getImagen(name.pokemon.name).subscribe((respuesta:any) =>{
+              this.images.push(respuesta.sprites.front_default)
+            })
+          })
         });
       }
     });
   }
+
   async InfoPokemones(name:string){
     this.PokemonService.getImagen(name).subscribe((respuesta:any) =>{
       this.PokemonName = respuesta.forms
@@ -49,5 +55,4 @@ export class ListadoPokemonPage implements OnInit {
   ocultar() {
     this.ocultarCard = false;
   }
-
 }
