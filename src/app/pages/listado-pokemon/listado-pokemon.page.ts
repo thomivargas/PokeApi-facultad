@@ -14,6 +14,9 @@ export class ListadoPokemonPage implements OnInit {
   pokemones: any;
   pokemonesTipo: any;
   urlImagen: any;
+  urlImagenBack: any;
+  PokemonName: any
+  PokemonHabilidad: any
   ocultarCard: boolean = false;
   constructor(
     private route: ActivatedRoute,
@@ -29,14 +32,16 @@ export class ListadoPokemonPage implements OnInit {
         this.PokemonService.getPokemones(id).subscribe(respuesta => {
           this.data = respuesta;
           this.pokemones=this.data.pokemon.slice(0,5)
-          console.log(this.pokemones)
         });
       }
     });
   }
   async InfoPokemones(name:string){
     this.PokemonService.getImagen(name).subscribe((respuesta:any) =>{
-      this.urlImagen=respuesta.sprites.front_default;
+      this.PokemonName = respuesta.forms
+      this.PokemonHabilidad = respuesta.abilities
+      this.urlImagen = respuesta.sprites.front_default;
+      this.urlImagenBack = respuesta.sprites.back_default;
       this.ocultarCard = true;
     })
   }

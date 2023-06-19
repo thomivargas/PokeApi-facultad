@@ -17,10 +17,18 @@
   </ion-list>
 </ion-content>
 <ion-card *ngIf="ocultarCard">
-  <img alt="pokemon" src="{{urlImagen}}" />
+  <img alt="pokemon" src="{{urlImagen}}"/>
+  <img alt="pokemon" src="{{urlImagenBack}}"/>
+  <ion-card-content *ngFor="let pokemon of PokemonName">
+    <ion-card-title>{{pokemon.name}}</ion-card-title>
+  </ion-card-content>
   <ion-card-content>
-    <ion-card-title>Nombre Pokemon</ion-card-title>
-    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    <ion-card-subtitle>Habilidades:</ion-card-subtitle>
+    <ion-item *ngFor="let habilidad of PokemonHabilidad"> 
+      <ion-label>Habilidad:{{habilidad.length}} {{habilidad.ability.name}}</ion-label>
+    </ion-item>
+    <ion-list>
+    </ion-list>
   </ion-card-content>
 
   <ion-card-content>
