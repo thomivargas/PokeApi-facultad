@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {PokeapiService} from '../../services/pokeapi.service';
 import { ListadoTiposPage } from '../listado-tipos/listado-tipos.page';
 
+
 @Component({
   selector: 'app-listado-pokemon',
   templateUrl: './listado-pokemon.page.html',
@@ -48,4 +49,5 @@ export class ListadoPokemonPage implements OnInit {
   ocultar() {
     this.ocultarCard = false;
   }
+
 }

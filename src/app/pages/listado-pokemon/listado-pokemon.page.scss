@@ -1,7 +1,11 @@
 ion-toolbar{
     text-align: center;
-    font: bold;
 }
-ion-card-title{
-    text-transform: uppercase;
+.imagenes{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid white;
+}
+.ocultar{
+    display: flex;
 }
