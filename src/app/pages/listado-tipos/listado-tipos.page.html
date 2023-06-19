@@ -4,10 +4,14 @@
       <ion-card-subtitle>Tipos</ion-card-subtitle>
   </ion-toolbar>
 </ion-header>
+<ion-toolbar>
+    <ion-searchbar placeholder="Buscar pokemones" show-clear-button="never"  (input)="buscarNombre($event)"animated ></ion-searchbar>
+ 
+  </ion-toolbar>
 
 
 <ion-content>
-  <ion-list *ngFor="let pokemon of pokemonesTipo" [inset]="true">
+  <ion-list *ngFor="let pokemon of buscarPokemon" [inset]="true">
     <ion-item>
       <ion-item>Tipo:</ion-item>
       <ion-label>{{pokemon.name}}</ion-label>
