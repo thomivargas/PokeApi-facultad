@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-card-title>Pokemon</ion-card-title>
+      <ion-card-subtitle>Tipos</ion-card-subtitle>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list *ngFor="let pokemon of pokemonesTipo" [inset]="true">
+    <ion-item>
+      <ion-item>Tipo:</ion-item>
+      <ion-label>{{pokemon.name}}</ion-label>
+      <ion-nav-link (click)="verPokemones(pokemon.name)" slot="end">
+        <ion-button>Info</ion-button>
+      </ion-nav-link>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { Tab2Page } from './tab2/tab2.page';
 
 const routes: Routes = [
   {
@@ -8,9 +7,14 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
   },
   {
-    path: 'detalle-pokemones/:id',
-    component: Tab2Page
+    path: 'listado-tipos',
+    loadChildren: () => import('./pages/listado-tipos/listado-tipos.module').then( m => m.ListadoTiposPageModule)
+  },
+  {
+    path: 'listado-pokemon/:id',
+    loadChildren: () => import('./pages/listado-pokemon/listado-pokemon.module').then( m => m.ListadoPokemonPageModule)
   }
+
 ];
 @NgModule({
   imports: [

@@ -1,18 +1,1 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-card-title>Pokemon</ion-card-title>
-      <ion-card-subtitle>Tipos</ion-card-subtitle>
-  </ion-toolbar>
-</ion-header>
-
-
-<ion-content>
-  <ion-card-title class="title">Listado de pokemones</ion-card-title>
-  <ion-list *ngFor="let pokemon of pokemonesTipo" [inset]="true">
-    <ion-item>
-      <ion-item>Tipo:</ion-item>
-      <ion-label>{{pokemon.name}}</ion-label>
-      <ion-button (click)="verPokemones(pokemon.name)" slot="end">Info</ion-button>
-    </ion-item>
-  </ion-list>
-</ion-content>
+<ion-nav [root]="component"></ion-nav>
